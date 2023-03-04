@@ -27,7 +27,7 @@ def login():
 def callback():
     authorization_code = request.args.get('code')
     
-    return render_template('subscribers.html', authorization_code=authorization_code)
+    return f"O seu code é {authorization_code}"
 
 
 if __name__ == '__main__':
