@@ -25,35 +25,7 @@ def login():
 
 @app.route('/callback')
 def callback():
-    code = request.args.get('code')
-
-    token_data = {
-        'client_id': CLIENT_ID,
-        'client_secret': CLIENT_SECRET,
-        'code': code,
-        'grant_type': 'authorization_code',
-        'redirect_uri': REDIRECT_URL
-    }
-
-    response = requests.post(TOKEN_URL, data=token_data).json()
-
-    access_token = response['access_token']
-
-    headers = {
-        'Client-ID': CLIENT_ID,
-        'Authorization': f'Bearer {access_token}'
-    }
-
-    user_response = requests.get(f'{API_URL}/users', headers=headers).json()
-    user_id = user_response['data'][0]['id']
-
-    subs_response = requests.get(f'{API_URL}/subscriptions?broadcaster_id={user_id}', headers=headers).json()
-    subs_list = [sub['user_name'] for sub in subs_response['data']]
-
-    # realizar o sorteio
-    ...
-
-    return render_template('arquivos/app/templates/sorteio.html', subs_list=subs_list)
+    return "Você foi redirecionado"
 
 if __name__ == '__main__':
     app.run()
