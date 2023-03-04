@@ -1,6 +1,5 @@
 from flask import Flask, redirect, render_template
 from requests import request
-import requests
 from decouple import config
 
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -23,12 +22,18 @@ def index():
 def login():
     return redirect(AUTH_URL)
 
-@app.route('/callback')
-def callback():
+@app.route('/redirecionamento')
+def redirecionamento():
     authorization_code = request.args.get('code')
-    
+    if authorization_code is None:
+        return "Missing 'code' parameter", 400
     return f"O seu code é {authorization_code}"
 
+
+@app.route('/oi')
+def oi():
+    return "oi"
+    
 
 if __name__ == '__main__':
     app.run()
