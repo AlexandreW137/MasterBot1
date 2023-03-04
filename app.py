@@ -26,19 +26,8 @@ def login():
 @app.route('/callback')
 def callback():
     authorization_code = request.args.get('code')
-
-
-    params = {
-    'client_id': CLIENT_ID,
-    'client_secret': SECRET_KEY,
-    'code': authorization_code,
-    'grant_type': 'authorization_code',
-    'redirect_uri': REDIRECT_URL
-}
-    response = requests.post(TOKEN_URL, params=params)
-    access_token = response.json().get('acess_token')
     
-    return render_template('subscribers.html', access_token=access_token, authorization_code=authorization_code)
+    return render_template('subscribers.html', authorization_code=authorization_code)
 
 
 if __name__ == '__main__':
