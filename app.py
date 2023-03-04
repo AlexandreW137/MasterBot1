@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 from requests import request
-from decouple import config
 import requests
 
 app = Flask(__name__, template_folder="../templates")
