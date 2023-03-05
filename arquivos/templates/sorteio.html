@@ -4,9 +4,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteio</title>
+    <title>Sorteio Twitch</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1c1c1c;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 10px;
+            margin-top: 30px;
+        }
+
+        .personal-name {
+            color: red;
+        }
+        img {
+            width: 25px;
+            height: 25px;
+            border-radius: 12px;
+        }
+        h2 {
+            color: black;
+        }
+        p {
+            font: 20px;
+            color: white;
+        }
+
+        .user-column {
+            background-color: white;
+            border-radius: 9px;
+        }
+
+        .settings-column {
+            background-color: white;
+        }
+
+        .other-settings-column {
+            background-color: white;
+            border-radius: 9px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        ul {
+            color: black;
+        }
+        .users p {
+            color:green;
+        }
+
+        .sortear {
+            margin: 10px;
+            width: 250px;
+            height: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Oi</h1>
+    <div class="boasvindas">
+        <h1>Olá <span><img src="{{ user_info['image_url'] }}" alt=""></span><span class="personal-name">{{ user_info['name'] }}</span></h1>
+        <p>seja bem vindo!</p>
+    </div>
+    
+    <div class="container">
+        <div class="user-column">
+            <h2>Participantes</h2>
+            <div class="users">
+
+                <ul>
+                  {% for follower in followers %}
+                    <li>{{ follower }}</li>
+                  {% endfor %}
+                </ul>
+                
+        </div>
+
+        </div>
+       
+        <div class="other-settings-column">
+            <h2>Configurar</h2>
+            <button>Adicionar todos os subs do canal</button>
+            
+        </div>
+    </div>
+    <button class="sortear">Sortear</button>
 </body>
 </html>

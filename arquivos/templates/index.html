@@ -5,10 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteios</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a{ 
+            text-decoration: none;
+        }
+
+        body {
+        background-color: #1c1c1c;
+        font-family: 'Open Sans', sans-serif;
+        margin: 50px;
+        color: white;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-y: hidden;
+
+
+      }
+   p{
+    color: red;
+   }
+
+      
+      
+        .button {
+        background-color: #9146ff;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        padding: 0.8rem 2.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease-in-out;
+        margin: 25px;
+      }
+        .button:hover {
+        background-color: #5e2bb5;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      }
+        .button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+        .filtros>a{
+          color: red;
+        }
+      .button{
+        float: right
+      }
+
+    </style>
 </head>
 <body>
-    <h1>Para realizar sorteios faça login com a twitch:</h1>
+<div class="container">
+  <div class="entrar">
+    <h1>Para realizar sorteios faça login com a twitch</h1>
     <p>Na tela de autorização aparecerá as permissões solicitadas que são as necessárias para fazer o sorteio.</p>
-    <a href='/login''>Login</p>
+    <a href="/login">
+    <button class="button">Login Twitch</button>
+  </a>
+  </div>
+</div>
+
+
+ 
+  
+</div>
+   
+
 </body>
 </html>
