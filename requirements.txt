@@ -7,3 +7,4 @@ MarkupSafe==2.1.2
 python-decouple==3.8
 Werkzeug==2.2.3
 gunicorn
+requests
